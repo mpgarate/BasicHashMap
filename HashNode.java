@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.LinkedList;
 public class HashNode{
   public LinkedList<Object[]> list = new LinkedList<Object[]>();
 

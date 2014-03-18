@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class HashTable {
 
   private final int TABLE_SIZE = 128;
