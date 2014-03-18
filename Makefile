@@ -12,5 +12,8 @@ default: classes
 
 classes: $(CLASSES:.java=.class)
 
+run: classes
+	java HashRunner
+
 clean:
 	$(RM) *.class
