@@ -18,8 +18,8 @@ HashTable hash = new HashTable();
 Store a key.
 
 ~~~java
-String m_key = "Michael";
-int m_value = 20;
+String key = "Michael";
+int value = 20;
 hash.add(m_key, m_value);
 ~~~
 
