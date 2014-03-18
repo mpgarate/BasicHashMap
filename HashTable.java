@@ -5,10 +5,10 @@
 public class HashTable {
 
   private int tableSize;
+
+  // array of HashNodes
   private HashNode[] table;
 
-
-  //LinkedList<Integer>[] vertex = new LinkedList[5]; 
   
   public HashTable(){
     this.tableSize = 128;
