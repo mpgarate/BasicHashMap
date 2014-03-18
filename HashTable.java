@@ -25,6 +25,15 @@ public class HashTable {
     return value;
   }
 
+  public int remove(String str){
+    int key = stringToHashKey(str);
+    int value = table[key].get(str);
+
+    table[key].remove(str);
+
+    return value;
+  }
+
   public String toString(){
     StringBuilder sb = new StringBuilder();
 

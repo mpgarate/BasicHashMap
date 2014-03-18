@@ -4,10 +4,10 @@ class HashRunner{
     HashTable hash = new HashTable();
 
     // store a key and print out the whole hash
-    String key = "Michael";
+    String m_key = "Michael";
     int m_value = 20;
 
-    hash.add(key, m_value);
+    hash.add(m_key, m_value);
     System.out.println("Hash contains:");
     System.out.println(hash.toString());
 
@@ -20,6 +20,13 @@ class HashRunner{
     // see that both keys are now in the hash
     System.out.println("Hash contains:");
     System.out.println(hash.toString());
+
+    // remove a key and see that it is gone
+    hash.remove("Michael");
+    System.out.println();
+    System.out.println("Hash contains:");
+    System.out.println(hash.toString());
+
 
   }
 }

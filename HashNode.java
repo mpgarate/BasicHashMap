@@ -10,6 +10,14 @@ public class HashNode{
     list.add(data);
   }
 
+  public void remove(String str){
+    for (Object[] data : list){
+      if (data[0].equals(str)){
+        list.remove(data);
+      }
+    }
+  }
+
   public int get(String str){
     return getValue(str);
   }
