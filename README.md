@@ -23,6 +23,11 @@ int m_value = 20;
 hash.add(m_key, m_value);
 ~~~
 
+Get a key.
+~~~java
+int vale = hash.get("Michael"); // 20
+~~~
+
 Remove a key.
 ~~~java
 hash.remove("Michael");
