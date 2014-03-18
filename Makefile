@@ -5,6 +5,7 @@ JC = javac
 				$(JC) $(JFLAGS) $*.java
 
 CLASSES = \
+				HashNode.java \
 				HashTable.java \
 				HashRunner.java
 
