@@ -27,6 +27,12 @@ class HashRunner{
     System.out.println("Hash contains:");
     System.out.println(hash.toString());
 
+    // update a value
+    hash.update("Bill",45);
+    System.out.println();
+    System.out.println("Hash contains:");
+    System.out.println(hash.toString());
+
 
   }
 }

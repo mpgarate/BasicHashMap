@@ -18,6 +18,12 @@ public class HashNode{
     }
   }
 
+  public void update(Object[] data){
+    String old_str = data[0].toString();
+    remove(old_str);
+    add(data);
+  }
+
   public int get(String str){
     return getValue(str);
   }

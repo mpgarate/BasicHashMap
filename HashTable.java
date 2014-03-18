@@ -23,6 +23,22 @@ public class HashTable {
     return value;
   }
 
+  public int update(String str, int value){
+    // create the new object
+    int key = stringToHashKey(str);
+    Object[] data = new Object[2];
+    data[0] = str;
+    data[1] = value;
+
+    // get the previous value
+    int oldValue = table[key].get(str);
+
+    //update the value
+    table[key].update(data);
+
+    return oldValue;
+  }
+
   public int remove(String str){
     int key = stringToHashKey(str);
     int value = table[key].get(str);
@@ -37,8 +53,8 @@ public class HashTable {
 
     for(int i = 0; i < table.length; i++){
       for(Object[] data : table[i].list){
-        sb.append(i + " : ");
-        sb.append(data[0] + " : ");
+        sb.append("index: " + i + " | ");
+        sb.append(data[0] + " => ");
         sb.append(data[1]);
         sb.append("\n");
       }
