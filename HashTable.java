@@ -1,4 +1,6 @@
-/*Hash table with linked lists for collisions*/
+// Hash table with linked lists for collisions
+//
+// Supports add, get, update, remove, toString
 
 public class HashTable {
 
