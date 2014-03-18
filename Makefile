@@ -7,14 +7,14 @@ JC = javac
 CLASSES = \
 				HashNode.java \
 				HashTable.java \
-				HashRunner.java
+				ExampleCases.java
 
 default: classes
 
 classes: $(CLASSES:.java=.class)
 
 run: classes
-	java HashRunner
+	java ExampleCases
 
 clean:
 	$(RM) *.class

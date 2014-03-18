@@ -1,11 +1,20 @@
+/*Hash table with linked lists for collisions*/
+
 public class HashTable {
 
-  private final int TABLE_SIZE = 128;
-  private HashNode[] table = new HashNode[TABLE_SIZE];
+  private int tableSize;
+  private HashNode[] table;
 
 
   //LinkedList<Integer>[] vertex = new LinkedList[5]; 
+  
   public HashTable(){
+    this.tableSize = 128;
+    initializeTable();
+  }
+
+  public HashTable(int tableSize){
+    this.tableSize = tableSize;
     initializeTable();
   }
 
@@ -65,12 +74,13 @@ public class HashTable {
 
   private int stringToHashKey(String string){
     int key = string.hashCode();
-    key = Math.abs(key % TABLE_SIZE);
+    key = Math.abs(key % tableSize);
     return key;
   }
 
   // set default values to -999
   private void initializeTable(){
+    this.table = new HashNode[this.tableSize];
     for (int i = 0; i < table.length; i++){
       table[i] = new HashNode();
     }
