@@ -1,7 +1,7 @@
 Java-Hash-Table
 ===============
 
-Hash table with linked lists to handle collisions created as an exercise. 
+Hash table with linked lists to handle collisions, created as an exercise. 
 
 Keys are strings and values are of type int.
 
