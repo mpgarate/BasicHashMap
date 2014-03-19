@@ -35,7 +35,9 @@ hash.remove("Michael");
 
 Update a value. 
 ~~~java
-hash.update("Michael", 45);
+hash.add("Bill",22);
+hash.update("Bill", 45);
+int value = hash.get("Bill") //45
 ~~~
 
 Initialize a table with a custom array size.
