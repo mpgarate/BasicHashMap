@@ -80,7 +80,6 @@ public class HashTable {
     return key;
   }
 
-  // set default values to -999
   private void initializeTable(){
     this.table = new HashNode[this.tableSize];
     for (int i = 0; i < table.length; i++){
