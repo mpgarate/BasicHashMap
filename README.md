@@ -3,7 +3,7 @@ Java-Hash-Table
 
 Hash table with linked lists to handle collisions, created as an exercise. 
 
-Keys are strings and values are of type int.
+Keys are strings and values are of type int. I might make this generic in the future. 
 
 Built using Java hashCode and java.util.LinkedList. 
 
