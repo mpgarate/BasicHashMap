@@ -7,6 +7,7 @@ public class BasicHashMap<K, V> {
     private Integer tableSize;
     private Bucket<K, V>[] buckets;
 
+
     public BasicHashMap() {
         this(DEFAULT_TABLE_SIZE);
     }
@@ -81,6 +82,10 @@ public class BasicHashMap<K, V> {
         }
 
         return sb.toString();
+    }
+
+    public int getBucketSize(){
+        return buckets.length;
     }
 
     private Integer calculateIndexOf(K key) {

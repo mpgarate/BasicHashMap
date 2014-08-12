@@ -82,4 +82,10 @@ public class BasicHashMapTest {
         assertEquals((Integer) 3, map.get("Entry 3"));
         assertEquals((Integer) 1, map.get("Entry 1"));
     }
+
+    @Test
+    public void customArraySizeTest(){
+        BasicHashMap<String, Integer> map = new BasicHashMap<String, Integer>(1);
+        assertEquals(1, map.getBucketSize());
+    }
 }
