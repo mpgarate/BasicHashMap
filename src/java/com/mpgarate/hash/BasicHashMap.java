@@ -2,20 +2,22 @@
 //
 // Supports add, get, update, remove, toString
 
-public class HashTable {
+package com.mpgarate.hash;
+
+public class BasicHashMap {
 
   private int tableSize;
 
   // array of HashNodes
-  private HashNode[] table;
+  private BasicHashNode[] table;
 
   
-  public HashTable(){
+  public BasicHashMap(){
     this.tableSize = 128;
     initializeTable();
   }
 
-  public HashTable(int tableSize){
+  public BasicHashMap(int tableSize){
     this.tableSize = tableSize;
     initializeTable();
   }
@@ -81,9 +83,9 @@ public class HashTable {
   }
 
   private void initializeTable(){
-    this.table = new HashNode[this.tableSize];
+    this.table = new BasicHashNode[this.tableSize];
     for (int i = 0; i < table.length; i++){
-      table[i] = new HashNode();
+      table[i] = new BasicHashNode();
     }
   }
 }
