@@ -1,4 +1,4 @@
-Java-Hash-Table
+BasicHashMap
 ===============
 
 Hash table with linked lists to handle collisions, created as an exercise. 
@@ -12,32 +12,32 @@ Built using Java hashCode and java.util.LinkedList.
 Instantiate
 
 ~~~java
-HashTable hash = new HashTable();
+BasicHashMap<String, Integer> map = new BasicHashMap<String, Integer>();
 ~~~
 
 Store a key.
 
 ~~~java
-String key = "Michael";
-int value = 20;
-hash.add(m_key, m_value);
+String name = "Michael";
+Integer age = 22;
+map.add(name, age);
 ~~~
 
 Get a key.
 ~~~java
-int value = hash.get("Michael"); // 20
+Integer age = map.get("Michael"); // 20
 ~~~
 
 Remove a key.
 ~~~java
-hash.remove("Michael");
+map.remove("Michael");
 ~~~
 
 Update a value. 
 ~~~java
-hash.add("Bill",22);
-hash.update("Bill", 45);
-int value = hash.get("Bill") //45
+map.add("Bill",22);
+map.update("Bill", 45);
+Integer value = hash.get("Bill") //45
 ~~~
 
 Initialize a table with a custom array size.
