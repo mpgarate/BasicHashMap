@@ -4,88 +4,78 @@
 
 package com.mpgarate.hash;
 
-public class BasicHashMap {
+public class BasicHashMap<K, V> {
 
-  private int tableSize;
+    private Integer tableSize;
+    private Bucket<K,V>[] buckets;
 
-  // array of HashNodes
-  private BasicHashNode[] table;
+    private final Integer DEFAULT_TABLE_SIZE = 128;
 
-  
-  public BasicHashMap(){
-    this.tableSize = 128;
-    initializeTable();
-  }
-
-  public BasicHashMap(int tableSize){
-    this.tableSize = tableSize;
-    initializeTable();
-  }
-
-  public void add(String str, int value){
-    int key = stringToHashKey(str);
-    Object[] data = new Object[2];
-    data[0] = str;
-    data[1] = value;
-    table[key].add(data);
-  }
-
-  public int get(String str){
-    int key = stringToHashKey(str);
-    int value = table[key].get(str);
-    return value;
-  }
-
-  public int update(String str, int value){
-    // create the new object
-    int key = stringToHashKey(str);
-    Object[] data = new Object[2];
-    data[0] = str;
-    data[1] = value;
-
-    // get the previous value
-    int oldValue = table[key].get(str);
-
-    //update the value
-    table[key].update(data);
-
-    return oldValue;
-  }
-
-  public int remove(String str){
-    int key = stringToHashKey(str);
-    int value = table[key].get(str);
-
-    table[key].remove(str);
-
-    return value;
-  }
-
-  public String toString(){
-    StringBuilder sb = new StringBuilder();
-
-    for(int i = 0; i < table.length; i++){
-      for(Object[] data : table[i].list){
-        sb.append("index: " + i + " | ");
-        sb.append(data[0] + " => ");
-        sb.append(data[1]);
-        sb.append("\n");
-      }
+    public BasicHashMap() {
+        this.tableSize = DEFAULT_TABLE_SIZE;
+        initializeTable();
     }
 
-    return sb.toString();
-  }
-
-  private int stringToHashKey(String string){
-    int key = string.hashCode();
-    key = Math.abs(key % tableSize);
-    return key;
-  }
-
-  private void initializeTable(){
-    this.table = new BasicHashNode[this.tableSize];
-    for (int i = 0; i < table.length; i++){
-      table[i] = new BasicHashNode();
+    public BasicHashMap(Integer tableSize) {
+        this.tableSize = tableSize;
+        initializeTable();
     }
-  }
+
+    public void add(K key, V value) {
+        Integer index = calculateIndexOf(key);
+        buckets[index].add(key, value);
+    }
+
+    public V get(K key) {
+        Integer index = calculateIndexOf(key);
+        V value = buckets[index].get(key);
+        return value;
+    }
+
+    public V update(K key, V value) {
+        Integer index = calculateIndexOf(key);
+        Bucket<K,V> bucket = buckets[index];
+        V oldValue = bucket.getValue(key);
+
+        bucket.update(key, value);
+
+        return oldValue;
+    }
+
+    public V remove(K key) {
+        Integer index = calculateIndexOf(key);
+        V value = buckets[index].get(key);
+
+        buckets[index].remove(key);
+
+        return value;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < buckets.length; i++) {
+            for (BucketNode<K,V> bucketNode : buckets[i].bucketNodes) {
+                sb.append("index: " + i + " | ");
+                sb.append(bucketNode.getKey() + " => ");
+                sb.append(bucketNode.getValue());
+                sb.append("\n");
+            }
+        }
+
+        return sb.toString();
+    }
+
+    private Integer calculateIndexOf(K key) {
+        Integer hashCode = key.hashCode();
+        Integer index = Math.abs(hashCode % tableSize);
+        return index;
+    }
+
+    private void initializeTable() {
+        this.buckets = new Bucket[this.tableSize];
+        for (int i = 0; i < buckets.length; i++) {
+            buckets[i] = new Bucket<K,V>();
+        }
+    }
 }
