@@ -1,8 +1,10 @@
+package com.mpgarate.hash;
+
 import java.util.LinkedList;
-public class HashNode{
+public class BasicHashNode {
   public LinkedList<Object[]> list = new LinkedList<Object[]>();
 
-  public HashNode(){
+  public BasicHashNode(){
 
   }
 
