@@ -1,7 +1,7 @@
 BasicHashMap
 ===============
 
-Hash table with linked lists to handle collisions, created as an exercise. 
+Hash map with linked lists to handle collisions, created as an exercise. 
 
 Generic types are supported. 
 
@@ -40,9 +40,9 @@ map.update("Bill", 45);
 Integer value = hash.get("Bill") //45
 ~~~
 
-Initialize a table with a custom array size.
+Initialize a map with a custom array size.
 ~~~java
-// This is a table of size 1, so all elements
+// This is a map of size 1, so all elements
 // will be in the linked list at index 0.
-HashTable miniTable = new HashTable(1);
+HashMap miniMap = new HashMap(1);
 ~~~
